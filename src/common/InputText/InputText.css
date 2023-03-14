@@ -1,0 +1,9 @@
+.inputDesign {
+    margin: 1em;
+    border: 0.2em solid darkblue;
+    border-radius: 1em;
+    background-color: transparent;
+    width: 15em;
+    height: 2em;
+    color: black;
+}
