@@ -12,8 +12,6 @@ export const Register = () => {
             <InputText />
 
 
-
-
         </div>
     )
 }
