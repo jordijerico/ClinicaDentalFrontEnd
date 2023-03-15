@@ -1,26 +1,18 @@
-
 .navigatorDesign {
-
     height: 2em;
-    width: 7em;
-
-    background-color: grey;
-
-    border-radius: 1em;
+    width: 5em;
+    background-color: transparent;
+    border-radius: 0.3em;
     border: 0.1em solid darkblue;
-
     cursor: pointer;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
-    margin: 1em;
+    margin-right: 0.3em;
     transition: 0.3s;
 }
 
 .navigatorDesign:hover {
-
     background-color: beige;
 
     transition: 0.3s;

@@ -1,18 +1,14 @@
 
 .registerDesign {
-
-    height: 85vh;
-    width: 100vw;
-
-    background-color: lightyellow;
-
+    height: 90vh;
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-/* .buttonLoginDesign{
+.buttonRegisterDesign{
     height: 3em;
     width: 5em;
     background-color: violet;
@@ -24,7 +20,7 @@
     align-items: center;
 }
 
-.buttonLoginDesign:hover{
+.buttonRegisterDesign:hover{
     background-color: aqua;
     
-} */
+}
