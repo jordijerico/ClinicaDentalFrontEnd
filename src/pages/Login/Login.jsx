@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { InputText } from '../../common/InputText/InputText'
-import { loginMe, profile } from '../../services/apiCalls';
+import { loginMe } from '../../services/apiCalls';
 import './Login.css'
 import { useNavigate } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
@@ -33,10 +33,9 @@ export const Login = () => {
 
 
     const loginFunction = async () => {
-        
+
         try {
             const loginResult = await loginMe(credenciales)
-            console.log(loginResult.data.data);
             if (loginResult.data.success) {
                 try {
                     const decoded = decodeToken(loginResult.data.data)
@@ -46,9 +45,9 @@ export const Login = () => {
                         usuario: decoded
 
                     }
-    
+
                     dispatch(login({ credentials: datosBackend }));
-                    
+
                     setTimeout(() => {
                         navigate("/")
                     }, 1000);
