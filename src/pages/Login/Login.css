@@ -11,16 +11,39 @@
 
 .buttonLoginDesign {
     height: 3em;
-    width: 5em;
-    background-color: violet;
+    width: 8em;
+    background-color: lightblue;
     border-radius: 1em;
     cursor: pointer;
     transition: 1s;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 1.5em;
 }
 
 .buttonLoginDesign:hover {
     background-color: aqua;
+}
+
+svg {
+    color: rgb(138, 184, 199);
+}
+
+
+@media (min-width:1500px) {
+
+    svg {
+        width: 8em;
+        height: 8em;
+        color: rgb(138, 184, 199);
+    }
+
+
+    .loginDesign {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 5em;
+    }
+    
 }

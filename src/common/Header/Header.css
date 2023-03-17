@@ -2,7 +2,30 @@
     height: 10vh;
     background-color: white;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
 
+}
+
+.linksNav {
+    display: flex;
+}
+
+.imagen {
+    background-image: url('../../assets/logo_clinica-removebg-preview.png');
+    width: 7em;
+    height: 2em;
+    z-index: 2;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media (min-width:1500px) {
+
+    .imagen {
+
+        width: 15em;
+        height: 5em;
+
+    }
 }

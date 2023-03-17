@@ -1,9 +1,9 @@
 .navigatorDesign {
     height: 2em;
-    width: 5em;
+    width: 4.5em;
     background-color: transparent;
     border-radius: 0.3em;
-    border: 0.1em solid darkblue;
+    border: 0.1em solid lightblue;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -16,4 +16,11 @@
     background-color: beige;
 
     transition: 0.3s;
+}
+
+@media (min-width:1500px) {
+    .navigatorDesign {
+        height: 4em;
+        width: 10em;
+    }
 }

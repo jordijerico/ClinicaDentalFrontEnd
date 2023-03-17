@@ -1,10 +1,26 @@
 .inputDesign {
-    margin: 1em;
-    border: 0.2em solid lightblue;
+    margin: 0.8em;
+    border: 0.1em solid lightblue;
     border-radius: 0.5em;
     background-color: transparent;
     width: 15em;
     height: 2.5em;
     color: black;
     text-align: center;
+}
+
+
+@media (min-width:1500px) {
+
+    .inputDesign {
+        margin: 1.2em;
+        border: 0.2em solid lightblue;
+        border-radius: 0.5em;
+        background-color: transparent;
+        width: 30em;
+        height: 3em;
+        color: black;
+        text-align: center;
+    }
+    
 }
