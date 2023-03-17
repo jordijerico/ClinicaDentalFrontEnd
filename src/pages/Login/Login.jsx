@@ -1,10 +1,16 @@
 import React, { useState } from 'react'
 import { InputText } from '../../common/InputText/InputText'
-import { loginMe } from '../../services/apiCalls';
+import { loginMe, profile } from '../../services/apiCalls';
 import './Login.css'
 import { useNavigate } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
+import { useDispatch } from "react-redux";
+import { login } from "../userSlice"
+import { decodeToken } from 'react-jwt';
 export const Login = () => {
+
+    const dispatch = useDispatch();
+
 
     const navigate = useNavigate();
     const [credenciales, setCredenciales] = useState({
@@ -26,23 +32,40 @@ export const Login = () => {
     };
 
 
-    const loginFunction = () => {
+    const loginFunction = async () => {
+        
+        try {
+            const loginResult = await loginMe(credenciales)
+            console.log(loginResult.data.data);
+            if (loginResult.data.success) {
+                try {
+                    const decoded = decodeToken(loginResult.data.data)
+                    let datosBackend = {
 
-        loginMe(credenciales)
-            .then(
-                userData => {
+                        token: loginResult.data.data,
+                        usuario: decoded
+
+                    }
+    
+                    dispatch(login({ credentials: datosBackend }));
+                    
                     setTimeout(() => {
                         navigate("/")
                     }, 1000);
+                } catch (error) {
+                    console.log(error);
                 }
-            )
-            .catch(error => console.log(error));
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 
 
     return (
         <Container fluid className="loginDesign">
-            
             <InputText
                 type="email"
                 name="email"

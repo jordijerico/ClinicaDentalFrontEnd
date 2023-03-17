@@ -2,15 +2,14 @@ import React from 'react'
 import { Header } from './common/Header/Header'
 import { Body } from './pages/Body/Body'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container } from 'react-bootstrap';
 import { Footer } from './common/Footer/Footer';
 
 export const App = () => {
   return (
-    <div  className="App">
+    <div className="App">
       <Header />
       <Body />
-      <Footer/>
+      <Footer />
     </div>
   )
 }
