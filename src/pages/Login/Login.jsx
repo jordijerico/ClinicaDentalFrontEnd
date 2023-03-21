@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { InputText } from '../../common/InputText/InputText'
 import { loginMe } from '../../services/apiCalls';
 import './Login.css'
@@ -7,6 +7,7 @@ import { Container } from 'react-bootstrap';
 import { useDispatch } from "react-redux";
 import { login } from "../userSlice"
 import { decodeToken } from 'react-jwt';
+import { validate } from '../../helpers/useful';
 export const Login = () => {
 
     const dispatch = useDispatch();
@@ -23,7 +24,21 @@ export const Login = () => {
         passwordError: "",
     });
 
+    const [registerAct, setRegisterAct] = useState(false);
 
+
+    useEffect(() => {
+
+
+        //Recorremos el primer for in para ver si hay errores en las credenciales....
+        for (let error in credencialesError) {
+            if (credencialesError[error] !== "") {
+                setRegisterAct(false);
+                return;
+            }
+        }
+        setRegisterAct(true);
+    });
 
     const inputHandler = (e) => {
         setCredenciales((prevState) => ({
@@ -31,6 +46,27 @@ export const Login = () => {
             [e.target.name]: e.target.value,
         }));
     };
+
+    const inputValidate = (e) => {
+
+
+        let error = "";
+
+        let checked = validate(
+            e.target.name,
+            e.target.value,
+        );
+
+        error = checked.message;
+
+
+        setCredencialesError((prevState) => ({
+            ...prevState,
+            [e.target.name + "Error"]: error,
+        }));
+    };
+
+
 
 
     const loginFunction = async () => {
@@ -76,7 +112,7 @@ export const Login = () => {
                 name="email"
                 placeholder="escribe un email"
                 changeFunction={(e) => inputHandler(e)}
-            // validateFunction={(e) => inputValidate(e)}
+                validateFunction={(e) => inputValidate(e)}
             />
             <div>{credencialesError.emailError}</div>
             <InputText
@@ -84,7 +120,7 @@ export const Login = () => {
                 name="password"
                 placeholder="escribe un password"
                 changeFunction={(e) => inputHandler(e)}
-            // validateFunction={(e) => inputValidate(e)}
+                validateFunction={(e) => inputValidate(e)}
             />
             <div>{credencialesError.passwordError}</div>
             <div className='buttonLoginDesign' onClick={() => loginFunction()}>Log me</div>

@@ -21,13 +21,14 @@ export const Header = () => {
             {datosCredencialesRedux.credentials?.token ? (
                 <>
                     <Navigator ruta={<img src={logo} width="100" height="30" />} destino={"/"} />
-                    <Navigator ruta={datosCredencialesRedux?.credentials?.usuario?.name} destino={"/profile"} />
-                    <div className='logoutDesign' onClick={() => logoutFunction()}>logout</div>
+                    <div className='linksNav'>
+                        <Navigator ruta={datosCredencialesRedux?.credentials?.usuario?.name} destino={"/profile"} />
+                        <div className='logoutDesign' onClick={() => logoutFunction()}>logout</div>
+                    </div>
                 </>
             ) : (
                 <>
                     <Navigator ruta={<img src={logo} width="100" height="30" />} destino={"/"} />
-
                     <div className='linksNav'>
                         <Navigator ruta={"Login"} destino={"/login"} />
                         <Navigator ruta={"Register"} destino={"/register"} />

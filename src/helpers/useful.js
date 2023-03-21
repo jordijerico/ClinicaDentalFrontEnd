@@ -5,8 +5,6 @@ export const validate = (name, data) => {
         case 'name':
         case 'nombre':
 
-            break;
-
         case 'surname':
         case 'apellido':
 
@@ -18,10 +16,26 @@ export const validate = (name, data) => {
             break;
         case 'email':
         case 'mail':
+            if (data === "") {
+                return { message: "Please fill the field" };
+            } else if (
+                !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(data)
+            ) {
+                return { message: "Invalid e-mail format"};
+            }
+
+            return { message: ""};
 
             break;
         case 'password':
         case 'contraseña':
+            if (data === "") {
+                return { message: "Please fill the field" };
+            } else if (!/[\d()+-]/g.test(data)) {
+                return { message: "Invalid password format" };
+            }
+            return { message: "" };
+
 
             break;
 
