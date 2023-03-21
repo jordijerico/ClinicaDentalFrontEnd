@@ -5,15 +5,35 @@ export const validate = (name, data) => {
         case 'name':
         case 'nombre':
 
+            if (data === "") {
+                return { message: "Please fill the field" };
+            } else if (!/[a-z]/gi.test(data)) {
+                return { message: "Please fill with a valid text" };
+            }
+
+            return { message: "" };
+
         case 'surname':
         case 'apellido':
 
-            break;
+            if (data === "") {
+                return { message: "Please fill the field" };
+            } else if (!/[a-z]/gi.test(data)) {
+                return { message: "Please fill with a valid text" };
+            }
+
+            return { message: "" };
+
 
         case 'phone':
         case 'telefono':
+            if (data === "") {
+                return { message: "Please fill the field" };
+            } else if (!/^[0-9]{3}?[-\s\.]?[0-9]{3}?[-\s\.]?[0-9]{3}$/.test(data)) {
+                return { message: "Invalid Phone format" };
+            }
 
-            break;
+            return { message: "" };
         case 'email':
         case 'mail':
             if (data === "") {
@@ -21,12 +41,12 @@ export const validate = (name, data) => {
             } else if (
                 !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(data)
             ) {
-                return { message: "Invalid e-mail format"};
+                return { message: "Invalid e-mail format" };
             }
 
-            return { message: ""};
+            return { message: "" };
 
-            break;
+
         case 'password':
         case 'contraseña':
             if (data === "") {
@@ -37,7 +57,7 @@ export const validate = (name, data) => {
             return { message: "" };
 
 
-            break;
+
 
         default:
             break;

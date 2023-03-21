@@ -32,13 +32,15 @@ export const Login = () => {
 
         //Recorremos el primer for in para ver si hay errores en las credenciales....
         for (let error in credencialesError) {
-            if (credencialesError[error] !== "") {
+            if (credencialesError[error] !== "" && credenciales !== "") {
                 setRegisterAct(false);
                 return;
             }
         }
         setRegisterAct(true);
     });
+
+
 
     const inputHandler = (e) => {
         setCredenciales((prevState) => ({
@@ -70,32 +72,35 @@ export const Login = () => {
 
 
     const loginFunction = async () => {
+        console.log(credenciales);
+        if (credenciales.email !== "" || credenciales.password !== "") {
+            try {
+                const loginResult = await loginMe(credenciales)
+                if (loginResult.data.success) {
+                    try {
+                        const decoded = decodeToken(loginResult.data.data)
+                        let datosBackend = {
 
-        try {
-            const loginResult = await loginMe(credenciales)
-            if (loginResult.data.success) {
-                try {
-                    const decoded = decodeToken(loginResult.data.data)
-                    let datosBackend = {
+                            token: loginResult.data.data,
+                            usuario: decoded
 
-                        token: loginResult.data.data,
-                        usuario: decoded
+                        }
 
+                        dispatch(login({ credentials: datosBackend }));
+
+                        setTimeout(() => {
+                            navigate("/")
+                        }, 1000);
+                    } catch (error) {
+                        console.log(error);
                     }
-
-                    dispatch(login({ credentials: datosBackend }));
-
-                    setTimeout(() => {
-                        navigate("/")
-                    }, 1000);
-                } catch (error) {
-                    console.log(error);
                 }
-            }
 
-        } catch (error) {
-            console.log(error);
+            } catch (error) {
+                console.log(error);
+            }
         }
+
 
     }
 
@@ -120,10 +125,26 @@ export const Login = () => {
                 name="password"
                 placeholder="escribe un password"
                 changeFunction={(e) => inputHandler(e)}
-                validateFunction={(e) => inputValidate(e)}
+            // validateFunction={(e) => inputValidate(e)}
             />
             <div>{credencialesError.passwordError}</div>
-            <div className='buttonLoginDesign' onClick={() => loginFunction()}>Log me</div>
+
+
+            <div
+                className="buttonLoginDesign"
+                onClick={
+                    registerAct
+                        ? () => {
+                            loginFunction();
+                        }
+                        : () => { }
+                }
+            >
+                Log me
+            </div>
+
+
+
         </Container>
     )
 }

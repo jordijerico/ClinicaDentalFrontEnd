@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { InputText } from '../../common/InputText/InputText'
 import './Register.css'
 import { registerMe } from '../../services/apiCalls'
 import { useNavigate } from 'react-router-dom'
+import { validate } from '../../helpers/useful';
+
 export const Register = () => {
     const navigate = useNavigate();
 
@@ -15,12 +17,61 @@ export const Register = () => {
 
     });
 
+    const [credencialesError, setCredencialesError] = useState({
+        nameError: "",
+        surnameError: "",
+        phoneError: "",
+        emailError: "",
+        passwordError: "",
+    });
+
+
     const inputHandler = (e) => {
         setCredenciales((prevState) => ({
             ...prevState,
             [e.target.name]: e.target.value,
         }));
     };
+
+
+
+    const [registerAct, setRegisterAct] = useState(false);
+
+
+    useEffect(() => {
+
+
+        //Recorremos el primer for in para ver si hay errores en las credenciales....
+        for (let error in credencialesError) {
+            if (credencialesError[error] !== "" && credenciales !== "") {
+                setRegisterAct(false);
+                return;
+            }
+        }
+        setRegisterAct(true);
+    });
+
+
+    const inputValidate = (e) => {
+
+
+        let error = "";
+
+        let checked = validate(
+            e.target.name,
+            e.target.value,
+        );
+
+        error = checked.message;
+
+
+        setCredencialesError((prevState) => ({
+            ...prevState,
+            [e.target.name + "Error"]: error,
+        }));
+    };
+
+
 
 
     const registerFunction = () => {
@@ -51,29 +102,37 @@ export const Register = () => {
                 name="name"
                 placeholder="escribe un nombre"
                 changeFunction={(e) => inputHandler(e)}
-            // validateFunction={(e) => inputValidate(e)}
+                validateFunction={(e) => inputValidate(e)}
             />
+            <div>{credencialesError.nameError}</div>
+
             <InputText
                 type="text"
                 name="surname"
                 placeholder="escribe un apellido"
                 changeFunction={(e) => inputHandler(e)}
-            // validateFunction={(e) => inputValidate(e)}
+                validateFunction={(e) => inputValidate(e)}
             />
+            <div>{credencialesError.surnameError}</div>
+
             <InputText
                 type="text"
                 name="phone"
                 placeholder="escribe un telefono"
                 changeFunction={(e) => inputHandler(e)}
-            // validateFunction={(e) => inputValidate(e)}
+                validateFunction={(e) => inputValidate(e)}
             />
+            <div>{credencialesError.phoneError}</div>
+
             <InputText
                 type="email"
                 name="email"
                 placeholder="escribe un email"
                 changeFunction={(e) => inputHandler(e)}
-            // validateFunction={(e) => inputValidate(e)}
+                validateFunction={(e) => inputValidate(e)}
             />
+            <div>{credencialesError.emailError}</div>
+
             <InputText
                 type="password"
                 name="password"
@@ -81,7 +140,23 @@ export const Register = () => {
                 changeFunction={(e) => inputHandler(e)}
             // validateFunction={(e) => inputValidate(e)}
             />
-            <div className='buttonRegisterDesign' onClick={() => registerFunction()}>Register</div>
+            <div>{credencialesError.passwordError}</div>
+
+
+
+
+            <div
+                className="buttonRegisterDesign" 
+                onClick={
+                    registerAct
+                        ? () => {
+                            registerFunction();
+                        }
+                        : () => { }
+                }
+            >
+                Register me!
+            </div>
 
         </div>
     )
