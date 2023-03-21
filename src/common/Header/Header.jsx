@@ -1,36 +1,38 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { userData, userout } from '../../pages/userSlice'
 import { Navigator } from '../Navigator/Navigator'
 import './Header.css'
+import logo from '../../assets/logo_clinica-removebg-preview.png'
 export const Header = () => {
 
     const datosCredencialesRedux = useSelector(userData);
-    console.log(datosCredencialesRedux);
     const dispatch = useDispatch();
     const logoutFunction = () => {
 
-        dispatch(userout({ credentials: {} , token : "" }));
+        dispatch(userout({ credentials: {} }));
     }
-
 
 
     return (
         <div className="headerDesign">
-            <div className='imagen'></div>
+            {/* <div className='imagen'></div> */}
             {datosCredencialesRedux.credentials?.token ? (
                 <>
-                <div className='profileButton' onClick={() => profileFunction()} >{datosCredencialesRedux?.credentials?.usuario?.name}</div>
-
-                <div className='logoutDesign' onClick={() => logoutFunction()}>logout</div>
+                    <Navigator ruta={<img src={logo} width="100" height="30" />} destino={"/"} />
+                    <Navigator ruta={datosCredencialesRedux?.credentials?.usuario?.name} destino={"/profile"} />
+                    <div className='logoutDesign' onClick={() => logoutFunction()}>logout</div>
                 </>
             ) : (
+                <>
+                    <Navigator ruta={<img src={logo} width="100" height="30" />} destino={"/"} />
 
-                <div className='linksNav'>
-                    <Navigator ruta={"Home"} destino={"/"} />
-                    <Navigator ruta={"Login"} destino={"/login"} />
-                    <Navigator ruta={"Register"} destino={"/register"} />
-                </div>
+                    <div className='linksNav'>
+                        <Navigator ruta={"Login"} destino={"/login"} />
+                        <Navigator ruta={"Register"} destino={"/register"} />
+                    </div>
+                </>
             )}
         </div>
     )

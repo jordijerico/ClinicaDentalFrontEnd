@@ -6,7 +6,7 @@ export const loginMe = async (body) => {
     return await axios.post(`${root}/auth/login`, body)
 }
 
-export const profile = async (token) => {
+export const getProfile = async (token) => {
 
     var config = {
         headers: {
