@@ -19,6 +19,20 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+.logoutDesign, .profileButton{
+    height: 2em;
+    width: 4.5em;
+    background-color: transparent;
+    border-radius: 0.3em;
+    border: 0.1em solid lightblue;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.3em;
+    transition: 0.3s;
+}
+
 
 @media (min-width:1500px) {
 

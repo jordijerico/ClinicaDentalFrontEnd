@@ -1,7 +1,7 @@
 export const validate = (name, data) => {
 
 
-    switch (key) {
+    switch (name) {
         case 'name':
         case 'nombre':
 
