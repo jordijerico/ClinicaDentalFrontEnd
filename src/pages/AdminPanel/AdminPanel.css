@@ -1,0 +1,14 @@
+.AdminPanelDesign {
+    height: 90vh;
+    width: 100vw;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 2em;
+}
+.titleClients{
+    font-size: larger;
+    font-weight: 600;
+}

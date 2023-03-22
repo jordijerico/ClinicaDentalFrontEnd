@@ -1,5 +1,6 @@
 import { React } from "react";
 import { Routes, Route } from "react-router-dom";
+import { AdminPanel } from "../AdminPanel/AdminPanel";
 import { Home } from "../Home/Home";
 import { Login } from "../Login/Login";
 import { Profile } from "../Profile/Profile";
@@ -13,6 +14,8 @@ export const Body = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/admin" element={<AdminPanel />} />
+
             </Routes>
         </>
     );
