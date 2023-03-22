@@ -7,10 +7,9 @@ export const Profile = () => {
 
 
     const perfil = useSelector(userData);
-// console.log(perfil);
     return (
         <Container fluid className="profileDesign">
-            {/* {perfil?.credentials?.token !== "" ? (
+            {perfil?.credentials?.token !== undefined ? (
                 <>
             <div>Nombre: {perfil.credentials.usuario.name}</div>
             <div>Apellido: {perfil.credentials.usuario.surname}</div>
@@ -19,7 +18,7 @@ export const Profile = () => {
 
             </>
             ) : 
-            (<div>Loading profile...</div>)} */}
+            (<div>Loading profile...</div>)}
             </Container>
     
     )

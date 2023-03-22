@@ -72,7 +72,6 @@ export const Login = () => {
 
 
     const loginFunction = async () => {
-        console.log(credenciales);
         if (credenciales.email !== "" || credenciales.password !== "") {
             try {
                 const loginResult = await loginMe(credenciales)
