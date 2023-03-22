@@ -11,14 +11,6 @@
     display: flex;
 }
 
-.imagen {
-    background-image: url('../../assets/logo_clinica-removebg-preview.png');
-    width: 7em;
-    height: 2em;
-    z-index: 2;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 .logoutDesign, .profileButton{
     height: 2em;
     width: 4.5em;
@@ -32,14 +24,28 @@
     margin-right: 0.3em;
     transition: 0.3s;
 }
+.logoDesign{
+    width: 9em;
+    height: 2.5em;
+    background-image: url("../../assets/logo_clinica-removebg-preview.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+
+@media (min-width:900px) {
 
 
-@media (min-width:1500px) {
-
-    .imagen {
-
+    .logoDesign{
         width: 15em;
         height: 5em;
-
+        background-image: url("../../assets/logo_clinica-removebg-preview.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        cursor: pointer;
+    }
+    .logoutDesign{
+        height: 4em;
+        width: 10em;
     }
 }

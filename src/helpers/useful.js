@@ -56,9 +56,6 @@ export const validate = (name, data) => {
             }
             return { message: "" };
 
-
-
-
         default:
             break;
     }

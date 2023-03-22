@@ -11,15 +11,14 @@ export const Profile = () => {
         <Container fluid className="profileDesign">
             {perfil?.credentials?.token !== undefined ? (
                 <>
-            <div>Nombre: {perfil.credentials.usuario.name}</div>
-            <div>Apellido: {perfil.credentials.usuario.surname}</div>
-            <div>Phone: {perfil.credentials.usuario.phone}</div>
-            <div>Email: {perfil.credentials.usuario.email}</div>
+                    <div>Nombre: {perfil.credentials.usuario.name}</div>
+                    <div>Apellido: {perfil.credentials.usuario.surname}</div>
+                    <div>Phone: {perfil.credentials.usuario.phone}</div>
+                    <div>Email: {perfil.credentials.usuario.email}</div>
+                </>
+            ) :
+                (<div>Loading profile...</div>)}
+        </Container>
 
-            </>
-            ) : 
-            (<div>Loading profile...</div>)}
-            </Container>
-    
     )
 }

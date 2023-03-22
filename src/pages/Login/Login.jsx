@@ -29,8 +29,6 @@ export const Login = () => {
 
     useEffect(() => {
 
-
-        //Recorremos el primer for in para ver si hay errores en las credenciales....
         for (let error in credencialesError) {
             if (credencialesError[error] !== "" && credenciales !== "") {
                 setRegisterAct(false);

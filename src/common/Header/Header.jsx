@@ -16,7 +16,7 @@ export const Header = () => {
         dispatch(userout({ credentials: {} }));
         setTimeout(() => {
             navigate("/")
-        }, 500);
+        }, 200);
     }
 
 
@@ -25,7 +25,7 @@ export const Header = () => {
             {/* <div className='imagen'></div> */}
             {datosCredencialesRedux.credentials?.token ? (
                 <>
-                    <Navigator ruta={<img src={logo} width="100" height="30" />} destino={"/"} />
+                    <div className='logoDesign' onClick={() => {navigate("/")}}></div>
                     <div className='linksNav'>
                         <Navigator ruta={datosCredencialesRedux?.credentials?.usuario?.name} destino={"/profile"} />
                         <div className='logoutDesign' onClick={() => logoutFunction()}>logout</div>
@@ -33,7 +33,7 @@ export const Header = () => {
                 </>
             ) : (
                 <>
-                    <Navigator ruta={<img src={logo} width="100" height="30" />} destino={"/"} />
+                    <div className='logoDesign' onClick={() => {navigate("/")}}></div>
                     <div className='linksNav'>
                         <Navigator ruta={"Login"} destino={"/login"} />
                         <Navigator ruta={"Register"} destino={"/register"} />
