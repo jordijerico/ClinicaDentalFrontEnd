@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
-import userSlice, { userData } from '../userSlice'
+import { userData } from '../userSlice'
 import './Profile.css'
 export const Profile = () => {
 

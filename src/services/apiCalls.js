@@ -27,6 +27,19 @@ export const getAllClientsByAdmin = async (token) => {
     return await axios.get(`${root}/user/profile/checkallclients`,config)
 }
 
+export const getAllAppointmentsByUser = async (token) => {
+
+    var config = {
+                headers: {
+                    'Authorization': 'Bearer ' + token,
+                }
+            };
+    return await axios.get(`${root}/user/appointments/checkall`,config)
+}
+
+
+
+
 
 export const registerMe = async (body) => {
 

@@ -1,7 +1,53 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Container } from 'react-bootstrap'
+import { useSelector } from 'react-redux'
+import { getAllAppointmentsByUser } from '../../services/apiCalls'
+import { userData } from '../userSlice'
+import AppointmentCard from "../../common/AppointmentCard/AppointmentCard"
 import "./Appointment.css"
 export const Appointment = () => {
+
+
+    const [getAppointments, setAppointments] = useState([])
+    const datosCredencialesRedux = useSelector(userData);
+
+
+    useEffect(() => {
+
+        if (getAppointments.length == 0) {
+            const getAllAppointments = async () => {
+                try {
+                    const appointments = await getAllAppointmentsByUser(datosCredencialesRedux.credentials?.token);
+
+                    setAppointments(appointments.data.data)
+                } catch (error) {
+                    console.log(error)
+                }
+
+
+            }
+            getAllAppointments();
+
+        }
+
+    }, [getAppointments]);
+
+
     return (
-        <div>Appointment</div>
+        <Container fluid className="appointmentDesign">
+            <div className="titleAppointments">Your Appointments</div>
+            <div className="gridAppointments">
+            {getAppointments.map(appt => {
+                return (
+                   
+                        <AppointmentCard key={appt.id} appointment={appt} />
+
+
+                   
+                )
+            })}
+            </div>
+        </Container>
+
     )
 }

@@ -36,6 +36,7 @@ export const Header = () => {
                         <div className='logoDesign' onClick={() => { navigate("/") }}></div>
                         <div className='linksNav'>
                             <Navigator ruta={datosCredencialesRedux?.credentials?.usuario?.name} destino={"/profile"} />
+                            <Navigator ruta={"Appt"} destino={"/appointments"} />
                             <div className='logoutDesign' onClick={() => logoutFunction()}>Logout</div>
                         </div>
                     </>

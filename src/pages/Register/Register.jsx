@@ -146,7 +146,7 @@ export const Register = () => {
 
 
             <div
-                className="buttonRegisterDesign" 
+                className="buttonRegisterDesign"
                 onClick={
                     registerAct
                         ? () => {
@@ -155,7 +155,7 @@ export const Register = () => {
                         : () => { }
                 }
             >
-                Register me!
+                Register
             </div>
 
         </div>

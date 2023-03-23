@@ -12,7 +12,6 @@ export const AdminPanel = () => {
 
 
     useEffect(() => {
-        console.log("HOLAAAAAAAAAAAAAAA");
 
         if (getClients.length == 0) {
             const getAllClients = async () => {
@@ -36,15 +35,15 @@ export const AdminPanel = () => {
     return (
         <Container fluid className="AdminPanelDesign">
             <div className="titleClients">CLIENTS</div>
+            <div className="gridClients">
+
             {getClients.map(client => {
                 return (
-                    <div className="gridClients" key={client.User.id}>
                         <ClientCard key={client.User.id} client={client.User} />
 
-                    </div>
                 )
             })}
-
+            </div>
 
         </Container>
 

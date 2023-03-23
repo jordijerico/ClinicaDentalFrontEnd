@@ -137,7 +137,7 @@ export const Login = () => {
                         : () => { }
                 }
             >
-                Log me
+                Log in
             </div>
 
 

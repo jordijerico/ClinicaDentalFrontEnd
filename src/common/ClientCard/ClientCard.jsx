@@ -1,7 +1,7 @@
 import Card from 'react-bootstrap/Card';
 export function ClientCard({ client }) {
     return (
-        <Card style={{ width: '18rem' }}>
+        <Card style={{ width: '18rem', border: '0.2em solid lightblue' }}>
             <Card.Body>
                 <Card.Title>{client.name}</Card.Title>
                 <Card.Text>

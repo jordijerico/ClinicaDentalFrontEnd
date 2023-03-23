@@ -3,7 +3,6 @@
     width: 100vw;
     background-color: transparent;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     border-radius: 2em;
@@ -11,4 +10,11 @@
 .titleClients{
     font-size: larger;
     font-weight: 600;
+    margin: 1em;
+}
+
+.gridClients{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
 }
