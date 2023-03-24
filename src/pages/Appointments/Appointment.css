@@ -18,3 +18,14 @@
     margin: 1em;
     font-weight: 500;
 }
+
+@media (min-width:900px) {
+
+    .gridAppointments {
+
+        grid-template-columns: 1fr 1fr 1fr;
+
+    }
+}
+
+
