@@ -5,9 +5,10 @@ import { getAllAppointmentsByUser } from '../../services/apiCalls'
 import { userData } from '../userSlice'
 import AppointmentCard from "../../common/AppointmentCard/AppointmentCard"
 import "./Appointment.css"
+import { useNavigate } from 'react-router-dom'
 export const Appointment = () => {
 
-
+    const navigate = useNavigate();
     const [getAppointments, setAppointments] = useState([])
     const datosCredencialesRedux = useSelector(userData);
 
@@ -35,18 +36,18 @@ export const Appointment = () => {
 
     return (
         <Container fluid className="appointmentDesign">
-            <div className="titleAppointments">Your Appointments</div>
+            <div className="titleAppointments">YOUR APPOINTMENTS</div>
+            <div className='centerDiv'>
+            <div className='btnNewAppt' onClick={()=> navigate("/newappointment")}> New Appointment</div>
+            </div>
             <div className="gridAppointments">
             {getAppointments.map(appt => {
-                return (
-                   
+                return (            
                         <AppointmentCard key={appt.id} appointment={appt} />
-
-
-                   
                 )
             })}
             </div>
+            
         </Container>
 
     )

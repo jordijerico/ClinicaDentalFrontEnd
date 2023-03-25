@@ -1,19 +1,19 @@
-.ptitle{
+.ptitle {
     font-weight: 600;
 }
 
-.cardStyle{
+.cardStyle {
     width: 90vw;
+    
 }
 
-.gridStyle{
- grid-template-columns: '1fr';
+.gridStyle {
+    grid-template-columns: '1fr';
 
 }
 
 @media (min-width:900px) {
-    .cardStyle{
-        width: 30vw;
+    .cardStyle {
+        width: 25vw;
     }
 }
-

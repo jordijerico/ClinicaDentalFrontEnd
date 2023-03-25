@@ -6,15 +6,13 @@ export function AppointmentCard({ appointment }) {
             <Card.Body>
 
                 <Card.Title style={{ textAlign: 'center', fontSize: 'large' }}>{"Appointment ID: " + appointment.id}</Card.Title>
-                <Card.Text className='cardtext gridStyle'  style={{ display: 'grid' }}>
-                
-                    <p className='ptitle'> Date:</p> {appointment.date} <br />
-                    <p className='ptitle'> Hour:</p> {appointment.hour} <br />
-                    <p className='ptitle'> Price:</p>{appointment.price + "€"} <br />
-                    <p className='ptitle'> About:</p>{appointment.about} <br />
-                    <p className='ptitle'> Doctor:</p> {appointment.doctor_id} <br />
-                    <p className='ptitle'> Client:</p>{appointment.client_id} <br />
+                <Card.Text className='cardtext gridStyle' style={{ display: 'grid', fontSize: 'large', fontWeight: '500' }}>
 
+                    Date: {appointment.date} <br />
+                    Hour: {appointment.hour} <br />
+                    Price: {appointment.price + "€"} <br />
+                    About: {appointment.about} <br />
+                    Doctor: {appointment.doctor_id} <br />
 
                 </Card.Text>
 

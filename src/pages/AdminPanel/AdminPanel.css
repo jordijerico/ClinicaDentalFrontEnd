@@ -12,12 +12,14 @@
     font-size: larger;
     font-weight: 600;
     margin: 1em;
+
 }
 
 .gridClients {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1em;
+    margin-bottom: 2em;
 }
 
 @media (min-width:900px) {
