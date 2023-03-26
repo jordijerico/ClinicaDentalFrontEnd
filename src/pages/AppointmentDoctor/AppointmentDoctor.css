@@ -1,0 +1,41 @@
+.appointmentDesign {
+    height: 100vh;
+    width: 100vw;
+    background-color: transparent;
+    border-radius: 2em;
+}
+
+.gridAppointments {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2em;
+}
+
+.titleAppointments {
+    text-align: center;
+    margin: 1em;
+    font-size: larger;
+    font-weight: 500;
+}
+
+
+.centerDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+@media (min-width:900px) {
+
+    .gridAppointments {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+
+    .btnNewAppt {
+        width: 20vw;
+        font-size: larger;
+    }
+}

@@ -23,3 +23,16 @@
     font-weight: 700;
     font-size: larger;
 }
+
+
+
+
+
+@media (min-width:900px) {
+
+    .profileData {
+        width: 50vw !important;
+        line-height: 3em !important;
+
+    }
+}
