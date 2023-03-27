@@ -38,6 +38,7 @@ export const newAppointment = async (token, body) => {
             'Authorization': 'Bearer ' + token,
         }
     };
+    console.log(body);
 
     return await axios.post(`${root}/appointment/appointment`, config, body)
 }

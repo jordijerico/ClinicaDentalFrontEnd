@@ -41,10 +41,10 @@ export const NewAppointment = () => {
 
 
     const createAppointment = () => {
-
+        console.log(credenciales);
         newAppointment(credenciales)
             .then(
-                userData => {
+                appointmentData => {
                     setTimeout(() => {
                         navigate("/appointments")
                     }, 1000);
@@ -99,7 +99,7 @@ export const NewAppointment = () => {
 
             <InputText
                 type="number"
-                name="doctor"
+                name="doctor_id"
                 placeholder="escribe el doctor ID"
                 changeFunction={(e) => inputHandler(e)}
             // validateFunction={(e) => inputValidate(e)}
@@ -109,7 +109,7 @@ export const NewAppointment = () => {
 
 
 
-            <div className="btnNewAppt" onClick={() => createAppointment()} >
+            <div className="btnNewAppt" onClick={() => {createAppointment()}} >
                 create
             </div>
 
