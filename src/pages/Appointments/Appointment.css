@@ -3,6 +3,7 @@
     width: 100vw;
     background-color: transparent;
     border-radius: 2em;
+
 }
 
 .gridAppointments {
@@ -47,6 +48,7 @@
 
     .gridAppointments {
         grid-template-columns: 1fr 1fr 1fr;
+        margin-left: 4em;
     }
 
 

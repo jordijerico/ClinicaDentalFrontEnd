@@ -33,14 +33,12 @@ export const registerMe = async (body) => {
 }
 
 export const newAppointment = async (body,token) => {
-    console.log(token);
     var config = {
         headers: {
             'Authorization': 'Bearer ' + token,
         }
     };
-    // console.log(body);
-    // console.log(config);
+
 
     return await axios.post(`${root}/appointment/appointment`,body, config)
 }

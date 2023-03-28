@@ -9,17 +9,6 @@ import "./NewAppointment.css"
 export const NewAppointment = () => {
     const navigate = useNavigate();
 
-    // const [fecha, setFecha] = useState(new Date());
-
-    // useEffect(() => {
-
-    //     console.log("Fecha escogida: ", dayjs(fecha).format('dddd DD MMMM YYYY'));
-
-    //     let fechaBackend = dayjs(fecha).format("YYYY MM DD");
-
-    //     console.log(fechaBackend)
-
-    // }, [fecha]);
 
     const datosCredencialesRedux = useSelector(userData);
 
@@ -44,8 +33,7 @@ export const NewAppointment = () => {
 
 
     const createAppointment = () => {
-        console.log(credenciales);
-        newAppointment(credenciales,datosCredencialesRedux.credentials?.token)
+        newAppointment(credenciales, datosCredencialesRedux.credentials?.token)
             .then(
                 appointmentData => {
                     setTimeout(() => {
@@ -67,7 +55,7 @@ export const NewAppointment = () => {
             <InputText
                 type="date"
                 name="date"
-                placeholder="escribe la fecha"
+                placeholder="Escribe la fecha"
                 changeFunction={(e) => inputHandler(e)}
             // validateFunction={(e) => inputValidate(e)}
             />
@@ -76,7 +64,7 @@ export const NewAppointment = () => {
             <InputText
                 type="text"
                 name="hour"
-                placeholder="escribe la hora"
+                placeholder="Escribe la hora (hh:mm:ss)"
                 changeFunction={(e) => inputHandler(e)}
             // validateFunction={(e) => inputValidate(e)}
             />
@@ -85,7 +73,7 @@ export const NewAppointment = () => {
             <InputText
                 type="number"
                 name="price"
-                placeholder="escribe un precio"
+                placeholder="Escribe un precio"
                 changeFunction={(e) => inputHandler(e)}
             // validateFunction={(e) => inputValidate(e)}
             />
@@ -94,7 +82,7 @@ export const NewAppointment = () => {
             <InputText
                 type="text"
                 name="about"
-                placeholder="escribe una descripción"
+                placeholder="Escribe una descripción"
                 changeFunction={(e) => inputHandler(e)}
             // validateFunction={(e) => inputValidate(e)}
             />
@@ -103,7 +91,7 @@ export const NewAppointment = () => {
             <InputText
                 type="number"
                 name="doctor_id"
-                placeholder="escribe el doctor ID"
+                placeholder="Escribe el doctor ID"
                 changeFunction={(e) => inputHandler(e)}
             // validateFunction={(e) => inputValidate(e)}
             />
@@ -112,7 +100,7 @@ export const NewAppointment = () => {
 
 
 
-            <div className="btnNewAppt" onClick={() => {createAppointment()}} >
+            <div className="btnNewAppt" onClick={() => { createAppointment() }} >
                 create
             </div>
 
