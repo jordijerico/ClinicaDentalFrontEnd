@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { InputText } from '../../common/InputText/InputText';
 import { newAppointment } from '../../services/apiCalls';
+import { userData } from '../userSlice';
 import "./NewAppointment.css"
 
 export const NewAppointment = () => {
@@ -19,6 +21,7 @@ export const NewAppointment = () => {
 
     // }, [fecha]);
 
+    const datosCredencialesRedux = useSelector(userData);
 
     const [credenciales, setCredenciales] = useState({
         date: "",
@@ -42,7 +45,7 @@ export const NewAppointment = () => {
 
     const createAppointment = () => {
         console.log(credenciales);
-        newAppointment(credenciales)
+        newAppointment(credenciales,datosCredencialesRedux.credentials?.token)
             .then(
                 appointmentData => {
                     setTimeout(() => {
